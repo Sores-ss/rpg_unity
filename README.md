@@ -15,7 +15,6 @@
 - [Jouer sans Unity](#jouer-sans-unity)
 - [Lancer le jeu](#lancer-le-jeu)
 - [Compiler en ligne de commande](#compiler-en-ligne-de-commande)
-- [Intégration continue](#intégration-continue)
 - [Structure du projet](#structure-du-projet)
 - [Architecture des scripts](#architecture-des-scripts)
 - [Assets utilisés](#assets-utilisés)
@@ -140,25 +139,13 @@ Sortie : `Builds/Linux/`, `Builds/Windows/` et les archives `Builds/EldenPixel-<
 
 Le script cherche l'éditeur correspondant à `ProjectSettings/ProjectVersion.txt` dans `~/Unity/Hub/Editor/` ; sinon indiquer le chemin avec `UNITY_PATH=/chemin/vers/Unity ./build.sh`. Unity doit être installé et **le compte Unity connecté dans Unity Hub** (la licence Personal est vérifiée au lancement), et le projet ne doit pas être ouvert dans l'éditeur.
 
-## Intégration continue
-
-Un workflow GitHub Actions ([`.github/workflows/build.yml`](.github/workflows/build.yml)) compile le jeu pour Linux et Windows via [GameCI](https://game.ci) à chaque push sur `main`, et publie automatiquement une Release avec les zips quand un tag `v*` est poussé :
-
-```bash
-git tag v1.0.0 && git push origin v1.0.0
-```
-
-La configuration des secrets de licence est décrite dans [`docs/CI.md`](docs/CI.md).
-
 ## Structure du projet
 
 ```
 rpg_unity/
-├── .github/workflows/build.yml   # CI : builds Linux/Windows + releases
 ├── .gitignore
 ├── README.md
 ├── build.sh                      # Build en ligne de commande
-├── docs/CI.md                    # Configuration de la CI
 ├── Builds/                       # Sorties de build (ignoré par git)
 └── RPG/                          # Projet Unity (à ouvrir dans Unity Hub)
     ├── Assets/
