@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7376c387d8a7e031ca3bdec6855f50d9, type: 3}
+  m_Name: BOSS
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  enemyName: Boss
+  isBoss: 1
+  maxHealth: 500
+  attackDamage: 50
+  attackCooldown: 0.5
+  attackDistance: 2
+  visionDistance: 4
+  loseTargetDelay: 2
+  moveSpeed: 0.8
+  returnSpeed: 1.5
+  wanderRadius: 1.5
+  wanderPointReachDistance: 0.12
+  wanderPauseDuration: 1.4
+  knockbackResistance: 0
+  knockbackDuration: 0.12
+  knockbackDecay: 22
+  animationType: 1
+  attackPlaybackSpeed: 1
+  idleClip: {fileID: -3100369314251171874, guid: 72a3b2e0cda40c9ce8b244a2b46f1066, type: 3}
+  runClip: {fileID: 5522812681064789136, guid: 72a3b2e0cda40c9ce8b244a2b46f1066, type: 3}
+  attackClip: {fileID: -1962111147472363628, guid: 72a3b2e0cda40c9ce8b244a2b46f1066, type: 3}
+  attackUp: {fileID: 0}
+  attackDiagUp: {fileID: 0}
+  attackSide: {fileID: 0}
+  attackDiagDown: {fileID: 0}
+  attackDown: {fileID: 0}
+  lootTable:
+  - itemName: Gold
+    itemIcon: {fileID: -4346390735350895921, guid: 6630d3dafb254687886c62e86b2a24c3, type: 3}
+    effectType: 2
+    animationType: 0
+    effectValue: 1
+    maxStack: 99
+    dropChance: 1
+    minCount: 5
+    maxCount: 10

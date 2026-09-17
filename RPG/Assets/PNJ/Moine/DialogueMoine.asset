@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 735e2462e00178ccc8eb1139bb5e36e4, type: 3}
+  m_Name: DialogueMoine
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  npcName: Moine
+  lines:
+  - "Salut jeune Sans-\xC9clat ! Je m'apelle Albert, un jeune moine parvenant \xE0
+    peine \xE0 ma\xEEtriser la magie."
+  - Je peux te soigner contre 10 ors en appuyant sur l'incantation 'H'.
+  - "Le chemin est bloqu\xE9 par cette barricade..."
+  - Mais ne t'en fais pas j'ai une solution !
+  - "Parcours la map \xE0 la recherche des diff\xE9rents outils, chacun t'ouvrira
+    une nouvelle zone."
+  - "Apparement un certain marteau te permettrait de d\xE9truire cette barricade."
+  - "Qui sait ce qu'il se cache derri\xE8re..."
