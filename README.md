@@ -12,7 +12,10 @@
 - [Fonctionnalités](#fonctionnalités)
 - [Stack technique](#stack-technique)
 - [Installation](#installation)
+- [Jouer sans Unity](#jouer-sans-unity)
 - [Lancer le jeu](#lancer-le-jeu)
+- [Compiler en ligne de commande](#compiler-en-ligne-de-commande)
+- [Intégration continue](#intégration-continue)
 - [Structure du projet](#structure-du-projet)
 - [Architecture des scripts](#architecture-des-scripts)
 - [Assets utilisés](#assets-utilisés)
@@ -77,6 +80,19 @@ Le jeu utilise le **nouveau Input System** d'Unity. Les touches sont mappées po
 
 La liste complète des packages est dans [`RPG/Packages/manifest.json`](RPG/Packages/manifest.json).
 
+## Jouer sans Unity
+
+Une build est disponible dans les [**Releases**](https://github.com/Sores-ss/rpg_unity/releases) du dépôt :
+
+```bash
+unzip EldenPixel-Linux.zip
+cd Linux
+chmod +x EldenPixel.x86_64
+./EldenPixel.x86_64
+```
+
+Sous Windows, dézipper `EldenPixel-Windows.zip` et lancer `EldenPixel.exe`.
+
 ## Installation
 
 ### Prérequis
@@ -106,20 +122,48 @@ cd rpg_unity
 
 Ouvrir `Assets/Scenes/MainMenu.unity` et appuyer sur **Play**. Le menu charge ensuite la scène `Game.unity`.
 
-### Exporter une build
+### Exporter une build depuis l'éditeur
 
-**File → Build Profiles** (ou **Build Settings**), vérifier que `MainMenu` et `Game` sont dans la liste des scènes, choisir la plateforme puis **Build**. Exportez la build **dans un dossier hors du projet** (par exemple `../Builds/`) pour éviter qu'elle ne soit importée comme asset.
+Le menu **Build** (ajouté par `Assets/Editor/BuildScript.cs`) propose **Linux x64**, **Windows x64** et **All platforms**. Les builds sont écrites dans `Builds/<Plateforme>/` à la racine du dépôt, hors du projet Unity. Vous pouvez aussi passer par **File → Build Profiles** comme d'habitude.
+
+## Compiler en ligne de commande
+
+Le script [`build.sh`](build.sh) pilote l'éditeur Unity en mode batch (sans interface) et produit un zip prêt à distribuer :
+
+```bash
+./build.sh            # build Linux (par défaut)
+./build.sh windows    # nécessite le module "Windows Build Support (Mono)" dans Unity Hub
+./build.sh all
+```
+
+Sortie : `Builds/Linux/`, `Builds/Windows/` et les archives `Builds/EldenPixel-<Plateforme>.zip`. Le log complet est dans `Builds/build.log`.
+
+Le script cherche l'éditeur correspondant à `ProjectSettings/ProjectVersion.txt` dans `~/Unity/Hub/Editor/` ; sinon indiquer le chemin avec `UNITY_PATH=/chemin/vers/Unity ./build.sh`. Unity doit être installé et **le compte Unity connecté dans Unity Hub** (la licence Personal est vérifiée au lancement), et le projet ne doit pas être ouvert dans l'éditeur.
+
+## Intégration continue
+
+Un workflow GitHub Actions ([`.github/workflows/build.yml`](.github/workflows/build.yml)) compile le jeu pour Linux et Windows via [GameCI](https://game.ci) à chaque push sur `main`, et publie automatiquement une Release avec les zips quand un tag `v*` est poussé :
+
+```bash
+git tag v1.0.0 && git push origin v1.0.0
+```
+
+La configuration des secrets de licence est décrite dans [`docs/CI.md`](docs/CI.md).
 
 ## Structure du projet
 
 ```
 rpg_unity/
+├── .github/workflows/build.yml   # CI : builds Linux/Windows + releases
 ├── .gitignore
 ├── README.md
+├── build.sh                      # Build en ligne de commande
+├── docs/CI.md                    # Configuration de la CI
+├── Builds/                       # Sorties de build (ignoré par git)
 └── RPG/                          # Projet Unity (à ouvrir dans Unity Hub)
     ├── Assets/
     │   ├── Audios/               # Musiques et effets sonores
-    │   ├── Editor/               # Scripts éditeur
+    │   ├── Editor/               # Scripts éditeur (dont BuildScript.cs)
     │   ├── PNJ/                  # Assets des personnages non-joueurs
     │   ├── Player/               # Sprites et animations du joueur
     │   ├── Prefabs/              # Prefabs (ennemis, objets, UI…)
