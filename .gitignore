@@ -6,6 +6,9 @@
 /RPG/[Oo]bj/
 /RPG/[Bb]uild/
 /RPG/[Bb]uilds/
+
+# Sorties de build.sh / CI
+/Builds/
 /RPG/[Ll]ogs/
 /RPG/[Uu]ser[Ss]ettings/
 /RPG/[Mm]emoryCaptures/
@@ -82,3 +85,5 @@ ExportedObj/
 Thumbs.db
 *.swp
 *~
+*.alf
+*.ulf
