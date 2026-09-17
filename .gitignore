@@ -1,0 +1,84 @@
+# ---------------------------------------------------------------------------
+# Unity — dossiers générés (le projet Unity est dans RPG/)
+# ---------------------------------------------------------------------------
+/RPG/[Ll]ibrary/
+/RPG/[Tt]emp/
+/RPG/[Oo]bj/
+/RPG/[Bb]uild/
+/RPG/[Bb]uilds/
+/RPG/[Ll]ogs/
+/RPG/[Uu]ser[Ss]ettings/
+/RPG/[Mm]emoryCaptures/
+/RPG/[Rr]ecordings/
+
+# Déchets importés par erreur avec le pack de sprites (logs/réglages éditeur)
+/RPG/Assets/Sprites/Pixel\ Art\ Top\ Down\ -\ Basic\ v1.2.3/Logs/
+/RPG/Assets/Sprites/Pixel\ Art\ Top\ Down\ -\ Basic\ v1.2.3/Logs.meta
+/RPG/Assets/Sprites/Pixel\ Art\ Top\ Down\ -\ Basic\ v1.2.3/UserSettings/
+/RPG/Assets/Sprites/Pixel\ Art\ Top\ Down\ -\ Basic\ v1.2.3/UserSettings.meta
+
+# Burst debug info généré à la build
+*_BurstDebugInformation_DoNotShip/
+*_BackUpThisFolder_ButDontShipItWithYourGame/
+
+# Assets générés par Unity
+/RPG/[Aa]ssets/AssetStoreTools*
+/RPG/[Aa]ssets/Plugins/Editor/JetBrains*
+/RPG/[Aa]ssets/StreamingAssets/aa/
+
+# Fichiers de crash / rapports
+sysinfo.txt
+crashlytics-build.properties
+
+# ---------------------------------------------------------------------------
+# Build Linux exportée directement dans RPG/ (à ne jamais versionner)
+# ---------------------------------------------------------------------------
+/RPG/*.x86_64
+/RPG/*_Data/
+/RPG/UnityPlayer.so
+/RPG/libdecor*.so*
+/RPG/*.so
+/RPG/GameAssembly.so
+
+# Autres plateformes de build
+*.apk
+*.aab
+*.unitypackage
+*.app
+*.exe
+*.dll
+*.pdb
+*.mdb
+*.ipa
+
+# ---------------------------------------------------------------------------
+# Fichiers de solution / projet IDE (régénérés par Unity)
+# ---------------------------------------------------------------------------
+*.csproj
+*.unityproj
+*.sln
+*.slnx
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+ExportedObj/
+.consulo/
+.vs/
+.vscode/
+.idea/
+.gradle/
+
+# ---------------------------------------------------------------------------
+# Système / éditeurs
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*~
